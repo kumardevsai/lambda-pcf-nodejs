@@ -19,5 +19,5 @@ Storage: 5gb
 I have also created an AngularJs site using these different versions, which you can find in my repos.
 
 
-##Big'ol Disclaimer
+## Big'ol Disclaimer
 Relax, this is a test. Only a test. I am sure I have not used best practices everywhere. As long as we are comparing one poorly coded example with an exact replica of another poorly coded example, we will get a usable delta.
