@@ -1,4 +1,4 @@
-# A sample NodeJs app to benchmark and compare AWS Lambda & PCF####
+### A sample NodeJs app to benchmark and compare AWS Lambda & PCF
 I was tasked with comparingan APi endpoint utilzing AWS Gateway API and Lambda services versus running the exact same app in Pivotal Cloud Foundry. This app is a very basic example of user registration, login, logout, view profile, and upload a profile picture.asd
 
 To use it in AWS Lambda, the index.js file is utilized as entry points into the app. To use it in PCF (on a standalone NodeJs server), the normal server.js file is utilized to start an ExpressJs server and sever the endpoints.
