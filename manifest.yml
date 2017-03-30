@@ -1,0 +1,11 @@
+---
+applications:
+- name: api-v1
+  host: api
+  instances: 1
+  memory: 128M
+  disk_quota: 512M
+  buildpack: nodejs_buildpack
+  services:
+    - mysql-5gb
+    - autoscaler-5sec

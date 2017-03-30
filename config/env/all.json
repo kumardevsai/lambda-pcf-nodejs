@@ -1,0 +1,6 @@
+{
+	"PORT": 3000,
+	"FORCE_DB_SYNC": true,
+  "enableSequelizeLog": true,
+  "expressSessionSecret": "aVery%g00dsecr$t."
+}

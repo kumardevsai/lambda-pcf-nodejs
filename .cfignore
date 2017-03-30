@@ -1,0 +1,5 @@
+node_modules/
+*.zip
+lambda.js
+README.md
+api-swagger.yaml

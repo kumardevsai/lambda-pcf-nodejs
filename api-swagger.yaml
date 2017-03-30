@@ -1,0 +1,261 @@
+swagger: '2.0'
+info:
+  title: LambdaPCF App API
+  version: "1.0.0"
+# the domain of the service
+host: lambda.cloudyaws.io
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /users:
+    post:
+      summary: Add a new user
+      operationId: addUser
+      parameters:
+        - name: user
+          in: body
+          description: User to add
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - User
+      responses:
+        200:
+          description: A new user
+          schema:
+            $ref: '#/definitions/User'
+        300:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        400:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/{userId}:
+    get:
+      summary: Get a user account details
+      operationId: getUserById
+      parameters:
+        - name: userId
+          in: path
+          description: User's account id
+          required: true
+          type: integer
+          format: int32
+      tags:
+        - User
+      responses:
+        200:
+          description: A users details
+          schema:
+            $ref: '#/definitions/User'
+        300:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        400:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: Update a user
+      parameters:
+        - name: userId
+          in: path
+          description: User's account id to update
+          required: true
+          type: integer
+          format: int32
+        - name: user
+          in: body
+          description: User info to use
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - User
+      responses:
+        200:
+          description: OK
+        300:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        400:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/login:
+    post:
+      summary: Login user
+      operationId: loginUser
+      parameters:
+        - name: loginInfo
+          in: body
+          description: Login a user
+          required: true
+          schema:
+            $ref: '#/definitions/LoginUser'
+      tags:
+        - User
+      responses:
+        200:
+          description: User info
+          schema:
+            $ref: '#/definitions/User'
+        300:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        400:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/{userId}/logout:
+    get:
+      summary: Logout a user
+      operationId: logoutUser
+      parameters:
+        - name: userId
+          in: path
+          description: User's account id
+          required: true
+          type: integer
+          format: int32
+      tags:
+        - User
+      responses:
+        200:
+          description: OK
+        300:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        400:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/{userId}/pic:
+    post:
+      summary: Upload a pic for user profile
+      operationId: addUserPic
+      parameters:
+        - name: userId
+          in: path
+          description: User's account id
+          required: true
+          type: integer
+          format: int32
+        - name: body
+          in: body
+          description: The picture binary
+          required: true
+          schema:
+            type: string
+      tags:
+        - User
+      responses:
+        200:
+          description: Ok
+        300:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        400:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  User:
+    type: object
+    properties:
+      userId:
+        type: integer
+        format: int32
+        description: the user's system assigned id
+      fullName:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+        format: password
+      dateCreated:
+        type: number
+        format: double
+      dateUpdated:
+        type: number
+        format: double
+      imageUrls:
+        type: array
+        items:
+          $ref: '#/definitions/ImageUrl'
+    required:
+    - fullName
+    - email
+    - password
+  LoginUser:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+        format: password
+    required:
+    - email
+    - password
+  ImageUrl:
+    type: object
+    properties:
+      size:
+        type: string
+        enum:
+        - sm
+        - med
+        - lg
+      url:
+        type: string
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
