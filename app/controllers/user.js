@@ -61,6 +61,7 @@ var user = {
 
 			if(m.authenticate(password, salt) === true){
 				m.setDataValue('lastLoginDate',new Date().getTime());
+				delete m.password;
 				next(null, m);
 			}else{
 				next(null,null);

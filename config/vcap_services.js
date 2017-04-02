@@ -9,8 +9,8 @@ var get_service = function () {
 };
 var get_db = function () {
 	var svc_info = 	get_service()
-	if(svc_info.cleardb[0]){
-		return svc_info.cleardb[0];
+	if(svc_info['p-mysql'][0]){
+		return svc_info['p-mysql'][0];
 	}
 
 	throw new Error('db not available');

@@ -1,5 +1,5 @@
 {
-	"cleardb": [{
+	"p-mysql": [{
 		"credentials": {
 			"name": "lambda_pcf",
 			"username": "mysqlSa",

@@ -60,6 +60,9 @@ module.exports = function(app) {
 	;
 
 	app.route('/users')
+		.all(function(req, res, next) {
+			next();
+		})
 	  .post(function(req,res, next){
 
 	  	user.add(req.body,util.salt,function(err,result){
@@ -74,12 +77,6 @@ module.exports = function(app) {
 
 	app.route('/users/login')
 		.all(function(req, res, next) {
-			try{
-				assert.ok(req.params.userId !== undefined && req.params.userId !== null);
-			}catch(ex){
-				 return res.status(400).json(util.handleErr('MissingUserId'));
-			}
-
 			next();
 		})
 	  .post(function(req,res){
