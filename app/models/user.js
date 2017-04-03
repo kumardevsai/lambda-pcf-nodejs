@@ -30,24 +30,24 @@ module.exports = function(sequelize, dataTypes) {
 			  firstName: {
 			    type: dataTypes.STRING(50),
 			    allowNull: false,
-			    validate: {
+			    /*validate: {
 			    	isAlphanumeric: true,
-			    }
+					}*/
 			  },
 			  lastName: {
 			    type: dataTypes.STRING(50),
 			    allowNull: false,
-			    validate: {
+			    /*validate: {
 			    	isAlphanumeric: true,
-			    }
+					}*/
 			  },
 			  email: {
 			    type: dataTypes.STRING(200),
 			    allowNull: false,
 			    unique: true,
-			    validate: {
+			    /*validate: {
 			    	isEmail: true,
-			    }
+					}*/
 			  },
 			  password: {
 			    type: dataTypes.STRING(100),
@@ -84,7 +84,7 @@ module.exports = function(sequelize, dataTypes) {
 			  createdAt: 'timestamp',
 			  updatedAt: 'lastUpdated',
 			  instanceMethods: {
-					toJSON: function (includePass, includeApiKey, includeFailPass) {
+					toJSON: function (includePass, includeFailPass) {
 						var values = this.get();
 						if(values === null){
 							return null;

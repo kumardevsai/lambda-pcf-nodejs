@@ -22,7 +22,7 @@ module.exports = function(app) {
 					return res.status(500).json(util.handleErr(err));
 				}
 
-				return res.json(result === null ? null : result.toJSON(true, true, false));
+				return res.json(result === null ? null : result.toJSON(false, true));
 			});
 	  })
 	  .delete(function(req,res, next){
@@ -70,7 +70,7 @@ module.exports = function(app) {
 	  			return res.status(500).json(util.handleErr(err));
 	  		}
 
-	  		return res.json(result === null ? null : result.toJSON(false, true, false));
+	  		return res.json(result === null ? null : result.toJSON(false, true));
 	  	});
 	  })
   ;

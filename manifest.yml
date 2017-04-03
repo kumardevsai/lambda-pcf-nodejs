@@ -1,7 +1,7 @@
 ---
 applications:
-- name: api-v1
-  host: api
+- name: lambda-pcf
+  host: pcf
   instances: 1
   memory: 128M
   disk_quota: 512M
