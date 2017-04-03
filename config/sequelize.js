@@ -14,7 +14,7 @@ winston.verbose('Initializing Sequelize...');
 try{
    // create your instance of sequelize
     var sequelize =  new Sequelize(cf_svc.get_db_uri(),{
-        dialect: 'mysql',
+        dialect: 'mariadb',
         pool: { maxIdleTime: 10000, maxConnections: 5, minConnections: 0},
         logging: config.enableSequelizeLog === 'true' ? winston.verbose : false
     });

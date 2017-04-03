@@ -4,7 +4,7 @@
 			"name": "lambda_pcf",
 			"username": "mysqlSa",
 			"password": "123asd!!",
-			"uri": "mysql://mysqlSa:123asd!!@lambda-pcf.cjbxdaiuylxw.us-east-1.rds.amazonaws.com:3306",
+			"uri": "mysql://mysqlSa:123asd!!@lambda-pcf.cjbxdaiuylxw.us-east-1.rds.amazonaws.com:3306/lambda_pcf",
 			"port": 3306
 		}
 	}]
