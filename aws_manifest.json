@@ -1,0 +1,23 @@
+{
+  "Type" : "AWS::Lambda::Function",
+  "Properties" : {
+    "Code" : "s3://asdasd/asd/",
+    "Description" : "This is a cool function",
+    "Environment" : {
+        "Variables" : {
+          "asdf":"1234"
+        }
+      },
+    "FunctionName" : "a-new-function",
+    "Handler" : "lambda.init",
+    "MemorySize" : 128,
+    "Role" : "arn:aws:iam::513335679153:role/lambda-admin",
+    "Runtime" : "nodejs6.10",
+    "Timeout" : 15,
+    "VpcConfig" : {
+      "SecurityGroupIds": [ "string" ],
+      "SubnetIds": [ "string" ],
+      "VpcId": "string"
+   }
+  }
+}
